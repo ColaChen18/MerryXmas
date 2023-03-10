@@ -7,6 +7,7 @@ public class HolidayTests
     public void 今天是聖誕節()
     {
         var target = new MyHoliday();
+        target.SetToday(new DateTime(1999, 12, 25));
         var actual = target.SayXmas();
 
         var expected = "Merry Xmas";
@@ -17,7 +18,7 @@ public class HolidayTests
     public void 今天不是聖誕節()
     {
         var target = new MyHoliday();
-        target.SetToday(new DateTime(2200,3,8));
+        target.SetToday(new DateTime(2200, 3, 8));
         var actual = target.SayXmas();
 
         var expected = "Today is not Xmas";
@@ -33,7 +34,7 @@ public class MyHoliday : Holiday
     {
         _today = today;
     }
-    
+
     protected override DateTime GetToday()
     {
         return _today;
