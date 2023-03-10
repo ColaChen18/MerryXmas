@@ -9,3 +9,11 @@ public class HolidayTests
 
     }
 }
+
+public class StubTimeProvider : ITimeProvider
+{
+    public DateTime GetToday()
+    {
+        return new DateTime(2002, 12, 25);
+    }
+}
