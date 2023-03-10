@@ -2,19 +2,7 @@
 
 public class Holiday
 {
-    private DateTime _today;
-    public DateTime Today
-    {
-        private get
-        {
-            if (_today == null)
-            {
-                _today = DateTime.Today;
-            }
-            return _today;
-        }
-        set => _today = value;
-    }
+    public DateTime Today { get; init; }
 
     public string SayXmas()
     {
