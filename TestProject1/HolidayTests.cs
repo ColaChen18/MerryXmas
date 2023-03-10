@@ -9,13 +9,8 @@ public class HolidayTests
     [TestMethod]
     public void 今天是聖誕節()
     {
-        var builder = new ContainerBuilder();
-        builder.RegisterType<TimeProvider>().As<ITimeProvider>();
-        builder.RegisterType<Holiday>();
-        var container = builder.Build();
+        Register();
 
-        // using var scope = container.BeginLifetimeScope();
-        // var target = scope.Resolve<Holiday>();
         var timeProvider = Substitute.For<ITimeProvider>();
         timeProvider.GetToday().Returns(new DateTime(2020, 12, 25));
 
@@ -23,5 +18,13 @@ public class HolidayTests
         var actual = target.SayXmas();
 
         Assert.AreEqual("Merry Xmas", actual);
+    }
+
+    private static void Register()
+    {
+        var builder = new ContainerBuilder();
+        builder.RegisterType<TimeProvider>().As<ITimeProvider>();
+        builder.RegisterType<Holiday>();
+        builder.Build();
     }
 }
