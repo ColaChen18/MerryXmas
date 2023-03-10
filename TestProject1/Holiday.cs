@@ -13,7 +13,7 @@ public class Holiday
         return "Today is not Xmas";
     }
 
-    private static DateTime GetToday()
+    protected virtual DateTime GetToday()
     {
         return DateTime.Today;
     }
