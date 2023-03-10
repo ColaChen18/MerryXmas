@@ -12,7 +12,20 @@ public class HolidayTests
         };
 
         var actual = target.SayXmas();
-        
+
         Assert.AreEqual("Merry Xmas", actual);
-    }    
+    }
+
+    [TestMethod]
+    public void 今天不是聖誕節()
+    {
+        var target = new Holiday
+        {
+            Today = new DateTime(1997, 6, 4),
+        };
+
+        var actual = target.SayXmas();
+
+        Assert.AreEqual("Today is not Xmas", actual);
+    }
 }
